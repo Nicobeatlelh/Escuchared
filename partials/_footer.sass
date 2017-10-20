@@ -1,0 +1,52 @@
+.form
+  display: none
+@supports (display: grid)
+  .footer
+    position: relative
+    top: -7px
+    text-align: center
+    font-weight: $font-black
+    letter-spacing: 1.5px
+    z-index: 2000
+    p
+      display: inline-block
+    li
+      display: inline-block
+      margin: 2px
+    &:hover, &:focus
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      background-color: inherit
+      transition: top ease-in-out 1000ms
+      form
+        display: block
+        text-align: left
+        label
+          display: block
+          margin: 1em
+          input
+            margin-left: 3px
+            border-radius: 5px
+  .social-links
+    position: absolute
+    right: 10px
+    top: -3.5px
+
+
+
+@supports (not(display: grid))
+  .footer
+    position: relative
+    bottom: -50px
+    text-align: center
+    font-weight: $font-black
+    letter-spacing: 1.5px
+    z-index: 2000
+    p
+      display: inline-block
+    li
+      display: inline-block
+      margin: 2px

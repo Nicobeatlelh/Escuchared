@@ -1,0 +1,91 @@
+.main
+  margin: 1em 1em 0
+  position: relative
+
+.label-one, .label-two
+  @include label
+  h2
+    color: $green
+  p
+    color: $white
+
+.more-info
+  color: $gray
+  text-align: right
+  padding: 3px
+  &:hover
+    cursor: pointer
+    color: black
+    font-weight: $font-black
+    text-decoration: underline
+    background-color: rgba(255,255,255,0.1)
+#map
+  height: 100%
+  max-width: 100%
+  position: relative
+  top: -38px
+.controls
+  position: relative
+  left: 130px
+  z-index: 1000
+  width: 30vw
+  min-width: 2em
+  height: 2.5em
+  border-radius: 2px
+@supports (not(display: grid))
+  .publicidad-izq, .publicidad-der
+     display: inline-block
+     width: 24%
+     height: 350px
+     overflow: hidden
+  .publicidad-izq
+    margin-right: 1%
+  .map
+    display: inline-block
+    width: 50%
+    height: 350px
+    position: relative
+    bottom: -150px
+  .label-one, .label-two,
+     @include width
+     position: absolute
+     top: 10px
+  .label-two
+    left: 55%
+  .info-one
+    @include width($display: block)
+  .info-two
+    @include width
+    float: right
+    position: relative
+    top: -100px
+@supports (display: grid)
+
+  .main
+    display: grid
+    grid-template-columns: 1fr 2fr 2fr 1fr
+    grid-template-rows: 1fr 2fr 1fr auto
+    grid-template-areas: "publicidad-1 label-one label-two publicidad-2" "publicidad-1 map map publicidad-2" "info-one map map info-two" "info-one . . info-two"
+    grid-gap: 1em
+  .publicidad-izq
+    grid-area: publicidad-1
+    background-size: cover
+    img
+      width: 100%
+      height: 100%
+  .map
+    grid-area: map
+  .publicidad-der
+    grid-area: publicidad-2
+    background-size: cover
+    img
+      width: 100%
+      height: 100%
+  .label-one
+    grid-area: label-one
+  .label-two
+    grid-area: label-two
+  .info-one
+    grid-area: info-one
+  .info-two
+    grid-area: info-two
